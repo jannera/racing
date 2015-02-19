@@ -2,33 +2,29 @@
 using System.Collections;
 
 public class WheelSync : MonoBehaviour {
-    public WheelCollider collider;
+    public WheelCollider wheelCollider;
 
-    private Vector3 tmp, basePos;
+    private Vector3 tmp;
     private WheelHit wheelHit = new WheelHit();
-
-    void Start() {
-        basePos = transform.localPosition;
-    }
 
 	void Update () {
         // spin the wheel to create illusion of moving
-        transform.Rotate(collider.rpm * 6 * Time.deltaTime, 0, 0);
+        transform.Rotate(wheelCollider.rpm * 6 * Time.deltaTime, 0, 0);
 
         // turn the wheel to match steering
         tmp = transform.localEulerAngles;
-        tmp.y = collider.steerAngle - transform.localEulerAngles.z;
+        tmp.y = wheelCollider.steerAngle - transform.localEulerAngles.z;
         transform.localEulerAngles = tmp;
 
         // move the wheel to match the suspension
-        if (collider.GetGroundHit(out wheelHit))
+        if (wheelCollider.GetGroundHit(out wheelHit))
         {            
-            transform.position = wheelHit.point + collider.transform.up * collider.radius;
+            transform.position = wheelHit.point + wheelCollider.transform.up * wheelCollider.radius;
         }
         else
         {
             // the wheel is in air
-            transform.position = collider.transform.position - collider.transform.up * collider.suspensionDistance;
+            transform.position = wheelCollider.transform.position - wheelCollider.transform.up * wheelCollider.suspensionDistance;
         }
 	}
 }

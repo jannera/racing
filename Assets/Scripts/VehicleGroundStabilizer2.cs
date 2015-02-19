@@ -44,17 +44,13 @@ public class VehicleGroundStabilizer2 : MonoBehaviour {
 	void FixedUpdate () {
         int hitting = 0;
 	    for (int i=0; i < sensors.Length; i++) {
-            Color c;
             Transform t = sensors[i].t;
             if (Physics.Raycast(t.position, -t.up, out raycastInfo, maxGroundDst, ground)) {
                 sensors[i].Found(raycastInfo);
                 hitting++;
-                c = Color.blue;
-                
             }
             else {
                 sensors[i].NotFound();
-                c = Color.white;
             }
             // Debug.DrawLine(t.position, t.position - t.up * maxGroundDst, c);
         }
@@ -141,7 +137,7 @@ public class VehicleGroundStabilizer2 : MonoBehaviour {
         groundNormal = result;
     }
 
-    private Plane p = new Plane(), groundPlane = new Plane();
+    private Plane p = new Plane();
 
     private void UpdateVehiclePlane()
     {
