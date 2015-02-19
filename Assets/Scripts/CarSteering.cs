@@ -13,38 +13,44 @@ public class CarSteering : MonoBehaviour {
     public float maxVelocity = 100; // km/h
 
     public float steerFactor;
-	
-	void Start () {
 
-	}
-	
+    public float boosterTorqueModifier = 3f;
+    public float boosterMaxVelocityModifier = 2f;
+    public float boosterSteerModifier = 0.2f;
 	
 	void FixedUpdate () {
         float steer = Mathf.Clamp(Input.GetAxis("Horizontal"), -1, 1);
         float motor = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1);
         float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
-
+        float maxVelocityModifier = 1f;
+        float torqueModifier = 1f;
 
         float currentVel = GetCurrentVelocityKmPerH();
+        Debug.Log(currentVel);
         // Steering depends on speed of the car
         float speedFactor = currentVel / maxVelocity;
+
         steerFactor = Mathf.Lerp(steerMinSpeed, steerMaxSpeed, speedFactor);
+
+        if (Input.GetKey(KeyCode.RightControl))
+        {
+            maxVelocityModifier = boosterMaxVelocityModifier;
+            torqueModifier = boosterTorqueModifier;
+            steerFactor *= boosterSteerModifier;
+        }
+
+        
 
         for (int i = 0; i < steeringWheels.Length; i++)
         {
             steeringWheels[i].steerAngle = steer * steerFactor;
         }
-
-        
-        // Debug.Log(currentVel);
-
-        
         
         for (int i = 0; i < torqueWheels.Length; i++)
         {
-            if (currentVel < maxVelocity)
+            if (currentVel < (maxVelocity * maxVelocityModifier))
             {
-                torqueWheels[i].motorTorque = motor * motorMax * torqueWheels[i].mass;
+                torqueWheels[i].motorTorque = motor * motorMax * torqueModifier * torqueWheels[i].mass;
             }
             else
             {

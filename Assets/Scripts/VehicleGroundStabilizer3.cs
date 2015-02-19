@@ -118,30 +118,16 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
         // todo: try to find the correct shape for the steepness curves
         // todo: separate curves to breadthwise / lengthwise curves
         // todo: check if the dampener curves actually matter at all, or do the steepness curve dominate
-        correction.x += -1f * xDir * responseToSteepness.Evaluate(Mathf.Abs(angles.x)) * Time.deltaTime;
-        correction.z += 3f * zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)) * Time.deltaTime;
+        correction.x += -1f * xDir * responseToSteepness.Evaluate(Mathf.Abs(angles.x)) * Time.deltaTime * velocityModifier.Evaluate(GetComponent<CarSteering>().GetCurrentFractionOfMaxVelocity());
+        correction.z += 3f * zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)) * Time.deltaTime * velocityModifier.Evaluate(GetComponent<CarSteering>().GetCurrentFractionOfMaxVelocity());
 
-        correction *= velocityModifier.Evaluate(GetComponent<CarSteering>().GetCurrentFractionOfMaxVelocity());
+        
 
 
         
         //Debug.Log(angles.z + ", " + currentVel.z + " -> " + correction.z);
 
-        Debug.Log(angles.z + " -> " + zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)));
-
-        
-
-        /*
-        if (Mathf.Abs(angles.x) > minResponseAngle)
-        {
-            correction.x = -currentVel.x;
-        }
-
-        if (Mathf.Abs(angles.z) > minResponseAngle)
-        {
-            correction.z = -currentVel.z;
-        }
-         * */
+        // Debug.Log(angles.z + " -> " + zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)));
 
         if (correction.x != 0 || correction.z != 0)
         {
