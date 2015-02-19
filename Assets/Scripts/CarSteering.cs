@@ -24,8 +24,10 @@ public class CarSteering : MonoBehaviour {
         float motor = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1);
         float brake = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
 
+
+        float currentVel = GetCurrentVelocityKmPerH();
         // Steering depends on speed of the car
-        float speedFactor = rigidbody.velocity.magnitude / motorMax;
+        float speedFactor = currentVel / maxVelocity;
         steerFactor = Mathf.Lerp(steerMinSpeed, steerMaxSpeed, speedFactor);
 
         for (int i = 0; i < steeringWheels.Length; i++)
@@ -33,8 +35,7 @@ public class CarSteering : MonoBehaviour {
             steeringWheels[i].steerAngle = steer * steerFactor;
         }
 
-        float currentVel = rigidbody.velocity.magnitude;
-        currentVel = MetersPerSecondToKmPerH(currentVel);
+        
         // Debug.Log(currentVel);
 
         
@@ -63,4 +64,15 @@ public class CarSteering : MonoBehaviour {
     {
         return v * 60 * 60 / 1000f;
     }
+
+    public float GetCurrentVelocityKmPerH()
+    {
+        return MetersPerSecondToKmPerH(rigidbody.velocity.magnitude);
+    }
+
+    public float GetCurrentFractionOfMaxVelocity() {
+        return GetCurrentVelocityKmPerH() / maxVelocity;
+        
+    }
+    
 }

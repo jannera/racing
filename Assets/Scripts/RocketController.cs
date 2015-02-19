@@ -10,6 +10,6 @@ public class RocketController : MonoBehaviour {
         float ver = - Mathf.Clamp(Input.GetAxis("RocketVertical"), -1, 1);
         force.Set(ver, 0, hor);
         force *= rocketAcceleration * Time.deltaTime;
-        rigidbody.AddRelativeTorque(force, ForceMode.Acceleration);
+        rigidbody.AddRelativeTorque(force, ForceMode.VelocityChange);
 	}
 }
