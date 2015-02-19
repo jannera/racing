@@ -26,7 +26,7 @@ public class CarSteering : MonoBehaviour {
         float torqueModifier = 1f;
 
         float currentVel = GetCurrentVelocityKmPerH();
-        Debug.Log(currentVel);
+        // Debug.Log(currentVel);
         // Steering depends on speed of the car
         float speedFactor = currentVel / maxVelocity;
 
@@ -38,8 +38,6 @@ public class CarSteering : MonoBehaviour {
             torqueModifier = boosterTorqueModifier;
             steerFactor *= boosterSteerModifier;
         }
-
-        
 
         for (int i = 0; i < steeringWheels.Length; i++)
         {

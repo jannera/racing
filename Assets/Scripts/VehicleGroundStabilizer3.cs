@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// todo: bah. try creating one first with three sensors, see if it works.. then try doing the more general version
 public class VehicleGroundStabilizer3 : MonoBehaviour {
     public float maxGroundDst = 2f;
     public float minSensorCoverage = 0.7f;
 
+    // todo: these three sensors should be replaced with a real sensor grid
     public Transform sensorA, sensorB, sensorC;
-
-    private RaycastHit raycastInfo;
 
     public LayerMask ground;
 
@@ -19,6 +17,9 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
     public AnimationCurve responseToSteepness;
 
     public AnimationCurve velocityModifier;
+
+    Quaternion q = new Quaternion();
+    private RaycastHit raycastInfo;
 
     private class GroundSensor {
         public Transform t;
@@ -50,34 +51,47 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-        int hitting = 0;
-	    for (int i=0; i < sensors.Length; i++) {
-            Color c;
-            Transform t = sensors[i].t;
-            if (Physics.Raycast(t.position, -t.up, out raycastInfo, maxGroundDst, ground)) {
-                sensors[i].Found(raycastInfo);
-                hitting++;
-                c = Color.blue;
-                
-            }
-            else {
-                sensors[i].NotFound();
-                c = Color.white;
-            }
-            // Debug.DrawLine(t.position, t.position - t.up * maxGroundDst, c);
-        }
-
-        if (hitting < minSensorCoverage * sensors.Length)
+        if (!UpdateGroundSensors())
         {
-            Debug.Log("not enough coverage " + hitting + " vs " + minSensorCoverage * sensors.Length);
             return;
         }
-
 
         UpdateGroundPlane();
 
         UpdateVehiclePlane();
 
+        Stabilize();
+	}
+
+    // returns true iff sensors found enough ground
+    bool UpdateGroundSensors()
+    {
+        int hitting = 0;
+        for (int i = 0; i < sensors.Length; i++)
+        {
+            Transform t = sensors[i].t;
+            if (Physics.Raycast(t.position, -t.up, out raycastInfo, maxGroundDst, ground))
+            {
+                sensors[i].Found(raycastInfo);
+                hitting++;
+            }
+            else
+            {
+                sensors[i].NotFound();
+            }
+        }
+
+        if (hitting < minSensorCoverage * sensors.Length)
+        {
+            // Debug.Log("not enough coverage " + hitting + " vs " + minSensorCoverage * sensors.Length);
+            return false;
+        }
+
+        return true;
+    }
+
+    void Stabilize()
+    {
         Vector3 localVehicleNormal = transform.InverseTransformDirection(vehicleNormal);
         Vector3 localGroundNormal = transform.InverseTransformDirection(groundNormal);
 
@@ -85,7 +99,8 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
 
         Vector3 angles = q.eulerAngles;
 
-        while (angles.x >= 180) {
+        while (angles.x >= 180)
+        {
             angles.x -= 360;
         }
         while (angles.y >= 180)
@@ -121,22 +136,12 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
         correction.x += -1f * xDir * responseToSteepness.Evaluate(Mathf.Abs(angles.x)) * Time.deltaTime * velocityModifier.Evaluate(GetComponent<CarSteering>().GetCurrentFractionOfMaxVelocity());
         correction.z += 3f * zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)) * Time.deltaTime * velocityModifier.Evaluate(GetComponent<CarSteering>().GetCurrentFractionOfMaxVelocity());
 
-        
-
-
-        
-        //Debug.Log(angles.z + ", " + currentVel.z + " -> " + correction.z);
-
-        // Debug.Log(angles.z + " -> " + zDir * responseToSteepness.Evaluate(Mathf.Abs(angles.z)));
-
         if (correction.x != 0 || correction.z != 0)
         {
             // Debug.Log("Angle " + angles + " too high, current velocity " + currentVel + " applying " + correction);
             rigidbody.AddRelativeTorque(correction, ForceMode.VelocityChange);
         }
-	}
-
-    Quaternion q = new Quaternion();
+    }
 
     void Update()
     {
@@ -163,18 +168,14 @@ public class VehicleGroundStabilizer3 : MonoBehaviour {
 
     private void UpdateGroundPlane()
     {
-        p.Set3Points(sensors[0].ground, sensors[1].ground, sensors[2].ground);
-        groundNormal = -p.normal;
-
-        
+        groundPlane.Set3Points(sensors[0].ground, sensors[1].ground, sensors[2].ground);
+        groundNormal = -groundPlane.normal;
     }
 
-    private Plane p = new Plane(), groundPlane = new Plane();
+    private Plane groundPlane = new Plane();
 
     private void UpdateVehiclePlane()
     {
-        int a = 0, b = 1, c = 2;
-        p.Set3Points(sensors[a].t.position, sensors[b].t.position, sensors[c].t.position);
-        vehicleNormal = -p.normal.normalized;
+        vehicleNormal = -transform.up;
     }
 }

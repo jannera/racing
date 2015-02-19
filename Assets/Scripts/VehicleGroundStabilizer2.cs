@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// todo: bah. try creating one first with three sensors, see if it works.. then try doing the more general version
+// todo: this does not work correctly, because fitting points to a plane does not work correctly atm. 
+// this is in version control because VehicleGroundStabilizer will need this later on
 public class VehicleGroundStabilizer2 : MonoBehaviour {
     public GameObject sensorContainer;
     public float maxGroundDst = 2f;
@@ -138,21 +139,6 @@ public class VehicleGroundStabilizer2 : MonoBehaviour {
         Vector3 result = m.Inverse().MultiplyVector(b).normalized;
 
         groundNormal = result;
-
-        // TODO: the above does not seem to work correctly, so..
-        if (n < 3)
-        {
-            return;
-        }
-
-        int ai = SelectViableRandomly();
-        int bi = SelectViableRandomly(ai);
-        int ci = SelectViableRandomly(ai, bi);
-
-        p.Set3Points(sensors[ai].ground, sensors[bi].ground, sensors[ci].ground);
-        groundNormal = p.normal;
-
-        
     }
 
     private Plane p = new Plane(), groundPlane = new Plane();
@@ -162,16 +148,5 @@ public class VehicleGroundStabilizer2 : MonoBehaviour {
         int a = 0, b = sensors.Length - 1, c = sensors.Length / 2;
         p.Set3Points(sensors[a].t.position, sensors[b].t.position, sensors[c].t.position);
         vehicleNormal = -p.normal.normalized;
-    }
-
-    int SelectViableRandomly(params int[] alreadySelected)
-    {
-        int result = Random.Range(0, sensors.Length);
-        while (!sensors[result].groundFound ||
-            System.Array.IndexOf(alreadySelected, result) != -1)
-        {
-            result = Random.Range(0, sensors.Length);
-        }
-        return result;
     }
 }
