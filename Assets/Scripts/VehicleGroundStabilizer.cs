@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VehicleGroundStabilizer3 : MonoBehaviour {
+public class VehicleGroundStabilizer : MonoBehaviour {
     public float maxGroundDst = 2f;
     public float minSensorCoverage = 0.7f;
 

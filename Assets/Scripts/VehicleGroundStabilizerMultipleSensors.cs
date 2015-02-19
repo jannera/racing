@@ -3,7 +3,7 @@ using System.Collections;
 
 // todo: this does not work correctly, because fitting points to a plane does not work correctly atm. 
 // this is in version control because VehicleGroundStabilizer will need this later on
-public class VehicleGroundStabilizer2 : MonoBehaviour {
+public class VehicleGroundStabilizerMultipleSensors : MonoBehaviour {
     public GameObject sensorContainer;
     public float maxGroundDst = 2f;
     public float minSensorCoverage = 0.7f;
