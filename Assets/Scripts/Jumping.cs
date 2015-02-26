@@ -74,10 +74,20 @@ public class Jumping : MonoBehaviour {
 
     void ReleaseJump()
     {
-        float relativeCharge = Mathf.Lerp(0, maxChargingTimer, chargingTimer);
-        float fullStartVelocity = Mathf.Sqrt(2f * fullJumpHeight * g);
+        float relativeCharge = GetChargeStatus();
+        float fullStartVelocity = GetFullJumpStartingVelocity();
         rigidbody.AddForce(transform.up * relativeCharge * fullStartVelocity, ForceMode.VelocityChange);
         ResetCharging();
+    }
+
+    public float GetChargeStatus()
+    {
+        return Mathf.Lerp(0, maxChargingTimer, chargingTimer);
+    }
+
+    private float GetFullJumpStartingVelocity()
+    {
+        return Mathf.Sqrt(2f * fullJumpHeight * g);
     }
 
     void ResetCharging()
