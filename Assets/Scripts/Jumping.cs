@@ -10,13 +10,16 @@ public class Jumping : MonoBehaviour {
 
     public float fullJumpHeight = 3f;
 
-	// Use this for initialization
+    private float g;
+
 	void Start () {
         wheels = GetComponentsInChildren<WheelCollider>();
+        g = Physics.gravity.magnitude;
 	}
 	
-	// Update is called once per frame
 	void Update () {
+        // todo: only start charging if enough wheels are touching the ground
+        // todo: if wheels haven't been touching the ground for long enough, stop charging
         if (Input.GetButtonDown("Jump")) 
         {
             StartChargingForJump();
@@ -43,12 +46,9 @@ public class Jumping : MonoBehaviour {
 
     void ReleaseJump()
     {
-        float force = Mathf.Lerp(0, maxChargingTimer, chargingTimer);
-
-        float fullJumpTime = fullJumpHeight / Physics.gravity.magnitude;
-
-        force *= (fullJumpHeight - 0.5f * Physics.gravity.magnitude * fullJumpTime * fullJumpTime) / fullJumpTime;
-        Debug.Log(force);
-        rigidbody.AddForce(transform.up * force, ForceMode.VelocityChange);
+        float relativeCharge = Mathf.Lerp(0, maxChargingTimer, chargingTimer);
+        float fullStartVelocity = Mathf.Sqrt(2f * fullJumpHeight * g);
+        rigidbody.AddForce(transform.up * relativeCharge * fullStartVelocity, ForceMode.VelocityChange);
+        chargingTimer = 0;
     }
 }
