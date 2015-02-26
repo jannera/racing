@@ -15,14 +15,20 @@ public class Jumping : MonoBehaviour {
     private float g;
 
     private float wheelsOffGroundTimer = 0;
+    private float[] normalSuspensionDistance;
 
 	void Start () {
         wheels = GetComponentsInChildren<WheelCollider>();
         g = Physics.gravity.magnitude;
+        normalSuspensionDistance = new float[wheels.Length];
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            normalSuspensionDistance[i] = wheels[i].suspensionDistance;
+        }
 	}
 	
 	void Update () {
-        if (WheelsOffGroundLongEnough())
+        if (WheelsOffGroundLongEnough() && GetChargeStatus() > 0)
         {
             ResetCharging();
             // todo: maybe earlier charging could remain the same, instead of resetting?
@@ -40,7 +46,7 @@ public class Jumping : MonoBehaviour {
         else if (Input.GetButton("Jump"))
         {
             ContinueCharging();
-        }       
+        }
 	}
 
     void FixedUpdate()
@@ -70,6 +76,7 @@ public class Jumping : MonoBehaviour {
     void ContinueCharging()
     {
         chargingTimer += Time.deltaTime;
+        UpdateSuspensionDistances();
     }
 
     void ReleaseJump()
@@ -93,5 +100,15 @@ public class Jumping : MonoBehaviour {
     void ResetCharging()
     {
         chargingTimer = 0;
+        UpdateSuspensionDistances();
+    }
+
+    void UpdateSuspensionDistances()
+    {
+        float status = GetChargeStatus();
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            wheels[i].suspensionDistance = normalSuspensionDistance[i] - Mathf.Lerp(0, normalSuspensionDistance[i], status);
+        }
     }
 }
