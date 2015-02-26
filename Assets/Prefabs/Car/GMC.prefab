@@ -21,9 +21,10 @@ GameObject:
   - 114: {fileID: 11473934}
   - 114: {fileID: 11459582}
   - 114: {fileID: 11419150}
+  - 114: {fileID: 11463490}
   m_Layer: 0
   m_Name: GMC
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2151,8 +2152,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 856, y: 36.5999985, z: 1266}
+  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 79.8000031, y: 7.0999999, z: 8.60000038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 497482}
@@ -5576,6 +5577,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketAcceleration: 10
+--- !u!114 &11463490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2777155670b3ee4990e74adccad05ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxChargingTimer: 1.5
+  fullJumpHeight: 5
+  minSecsToBeConsideredOffGround: .5
 --- !u!114 &11473034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5674,12 +5689,12 @@ MonoBehaviour:
   brakingWheels:
   - {fileID: 14696948}
   - {fileID: 14696946}
-  steerMinSpeed: 20
+  steerMinSpeed: 35
   steerMaxSpeed: 10
   motorMax: 25
   brakeMax: 5
   maxVelocity: 120
-  reverseMax: 40
+  reverseMax: 15
   steerFactor: 0
   boosterTorqueModifier: 1
   boosterMaxVelocityModifier: 1.75
