@@ -84,13 +84,13 @@ public class CarCamera : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		currentVelocity = target.root.rigidbody.velocity;
+		currentVelocity = target.parent.rigidbody.velocity;
 		currentVelocity.y = 0;
 	}
 
 	void LateUpdate()
 	{
-		float speedFactor = Mathf.Clamp01(target.root.rigidbody.velocity.magnitude / maxSpeedFactor);
+		float speedFactor = Mathf.Clamp01(target.parent.rigidbody.velocity.magnitude / maxSpeedFactor);
 		camera.fieldOfView = Mathf.Lerp(fieldOfView.min, fieldOfView.max, speedFactor);
 		float currentDistance = Mathf.Lerp(viewDistance.min, viewDistance.max, speedFactor);
 
