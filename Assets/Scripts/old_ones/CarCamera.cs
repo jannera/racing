@@ -59,6 +59,13 @@ public class CarCamera : MonoBehaviour
 
 	public int peekAngle = 60;
 
+	public float peekSpeed = 11f;
+
+	/// <summary>
+	/// The difference of normal angle and current angle under which the peeking speed usage is ended after peeking.
+	/// </summary>
+	public int peekEndAngle = 10;
+
 	private RaycastHit hit = new RaycastHit();
 
 	/// <summary>
@@ -68,6 +75,7 @@ public class CarCamera : MonoBehaviour
 
 	private Vector3 currentVelocity = Vector3.zero;
 	private Vector3 lastUsedVelocity = Vector3.forward;
+	private bool wasPeeking = false;
 
 	void Start()
 	{
@@ -107,19 +115,30 @@ public class CarCamera : MonoBehaviour
 		float velocityAngle = velocityRotation.eulerAngles.y;
 		bool peekLeft = Input.GetButton("PeekLeft");
 		bool peekRight = Input.GetButton("PeekRight");
+		bool anyPeek = peekLeft || peekRight;
 		if (peekLeft && peekRight) {
 			velocityAngle += 180;
-		} else if (peekLeft || peekRight) {
+		} else if (anyPeek) {
 			velocityAngle += peekAngle * (peekRight ? 1 : -1);
+		}
+
+		// Speed to use to rotate the camera.
+		float rotationSpeed = positionDamping;
+		if (anyPeek || wasPeeking) {
+			rotationSpeed = peekSpeed;
+			wasPeeking = true;
 		}
 
 		// Target direction.
 		float targetAngle = Mathf.LerpAngle(
 			transform.eulerAngles.y,
 			velocityAngle,
-			positionDamping * Time.deltaTime
+			rotationSpeed * Time.deltaTime
 		);
 
+		if (!anyPeek && wasPeeking && Mathf.Abs(Mathf.DeltaAngle(targetAngle, velocityAngle)) < peekEndAngle) {
+			wasPeeking = false;
+		}
 
 		/* Side picture:
 		 *
