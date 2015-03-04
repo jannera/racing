@@ -1,18 +1,13 @@
 fileFormatVersion: 2
-guid: fbb8f9db33d2f69499181e1d9d777d3b
+guid: f9b0bed32de9b1147abd7eedffe2f390
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
-    100002: light_007
     400000: //RootNode
-    400002: light_007
     2300000: //RootNode
-    2300002: light_007
     3300000: //RootNode
-    3300002: light_007
     4300000: FC_road_straight
-    4300002: light_007
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -51,7 +46,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
@@ -65,6 +60,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
