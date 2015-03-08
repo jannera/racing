@@ -7,10 +7,8 @@ public class Jumping : MonoBehaviour {
 
     private float chargingTimer = 0f;
     private float atMaxTimer = 0f;
-    public float maxChargingTimer = 1.5f;
+    private float maxChargingTimer;
     public float timeToHoldAtMaxCharge = 0.2f;
-
-    public float fullJumpHeight = 3f;
 
     public float minSecsToBeConsideredOffGround = 0.5f; // after at least one wheel has been off the ground for at least this long, charging of jump is stopped and jumping is not possible
 
@@ -23,6 +21,15 @@ public class Jumping : MonoBehaviour {
 
     private GolfCharger risingStatus = GolfCharger.INCREASING;
 
+    [System.Serializable]
+    public class JumpConfig
+    {
+        public float maxTime = 0;
+        public float jumpHeight;
+    }
+
+    public JumpConfig[] jumpStages;
+
 	void Start () {
         wheels = GetComponentsInChildren<WheelCollider>();
         g = Physics.gravity.magnitude;
@@ -31,6 +38,7 @@ public class Jumping : MonoBehaviour {
         {
             normalSuspensionDistance[i] = wheels[i].suspensionDistance;
         }
+        maxChargingTimer = jumpStages[jumpStages.Length - 1].maxTime;
 	}
 	
 	void Update () {
@@ -45,7 +53,7 @@ public class Jumping : MonoBehaviour {
         {
             StartChargingForJump();
         }
-        else if (Input.GetButtonUp("Jump"))
+        else if (Input.GetButtonUp("Jump") && WheelsOnGround())
         {
             ReleaseJump();
         }
@@ -57,16 +65,26 @@ public class Jumping : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (!WheelsOnGround())
+        {
+            wheelsOffGroundTimer += Time.deltaTime;
+        }
+        else
+        {
+            wheelsOffGroundTimer = 0;
+        }
+    }
+
+    private bool WheelsOnGround()
+    {
         for (int i = 0; i < wheels.Length; i++)
         {
             if (!wheels[i].isGrounded)
             {
-                wheelsOffGroundTimer += Time.deltaTime;
-                return;
+                return false;
             }
         }
-
-        wheelsOffGroundTimer = 0;
+        return true;
     }
 
     bool WheelsOffGroundLongEnough()
@@ -118,9 +136,7 @@ public class Jumping : MonoBehaviour {
 
     void ReleaseJump()
     {
-        float relativeCharge = GetChargeStatus();
-        float fullStartVelocity = GetFullJumpStartingVelocity();
-        rigidbody.AddForce(transform.up * relativeCharge * fullStartVelocity, ForceMode.VelocityChange);
+        rigidbody.AddForce(transform.up * GetJumpStartingVelocity(), ForceMode.VelocityChange);
         ResetCharging();
     }
 
@@ -129,9 +145,25 @@ public class Jumping : MonoBehaviour {
         return chargingTimer/maxChargingTimer;
     }
 
-    private float GetFullJumpStartingVelocity()
+    private float GetJumpStartingVelocity()
     {
-        return Mathf.Sqrt(2f * fullJumpHeight * g);
+        int i = 0;
+        for (; i < jumpStages.Length; i++)
+        {
+            if (chargingTimer <= jumpStages[i].maxTime)
+            {
+                break;
+            }
+        }
+
+        if (i == jumpStages.Length)
+        {
+            i--;
+        }
+
+        Debug.Log(chargingTimer + " vs " + maxChargingTimer + " => " + jumpStages[i].jumpHeight);
+
+        return Mathf.Sqrt(2f * jumpStages[i].jumpHeight * g);
     }
 
     void ResetCharging()

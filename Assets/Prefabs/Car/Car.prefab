@@ -265,6 +265,7 @@ GameObject:
   - 114: {fileID: 11488116}
   - 114: {fileID: 11488120}
   - 114: {fileID: 11463900}
+  - 114: {fileID: 11491846}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -2486,15 +2487,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2777155670b3ee4990e74adccad05ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxChargingTimer: .75
   timeToHoldAtMaxCharge: .300000012
-  fullJumpHeight: 9
   minSecsToBeConsideredOffGround: .5
+  jumpStages:
+  - maxTime: .25
+    jumpHeight: 3
+  - maxTime: .5
+    jumpHeight: 6
+  - maxTime: .75
+    jumpHeight: 9
 --- !u!114 &11488122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2591,6 +2597,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelCollider: {fileID: 14688130}
+--- !u!114 &11491846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e349e7066953f6448c83f485ee80c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStages:
+  - duration: .25
+    jumpHeight: .850000024
+  - duration: .25
+    jumpHeight: .850000024
+  - duration: .25
+    jumpHeight: .850000024
 --- !u!146 &14688126
 WheelCollider:
   m_ObjectHideFlags: 1

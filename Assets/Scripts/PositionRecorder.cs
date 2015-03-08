@@ -42,7 +42,6 @@ public class PositionRecorder : MonoBehaviour {
 	void FixedUpdate () {
         if (Input.GetButton("Rewind Time"))
         {
-            Debug.Log("Rewinding time");
             for (int i = 0; i < framesPerRewind && history.Count > 0; i++)
             {
                 history.Pop();

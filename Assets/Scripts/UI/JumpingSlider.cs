@@ -12,6 +12,10 @@ public class JumpingSlider : MonoBehaviour {
         GameObject car = GameObject.FindGameObjectWithTag("Player");
         jumping = car.GetComponent<Jumping>();
         slider = GetComponent<Slider>();
+        if (!jumping.enabled)
+        {
+            gameObject.SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
