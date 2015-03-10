@@ -13,6 +13,15 @@ ModelImporter:
     100014: A_glass_008
     100016: A_glass_009
     100018: //RootNode
+    100020: A_door_008
+    100022: A_door_009
+    100024: A_door_010
+    100026: A_door_011
+    100028: A_glass_018
+    100030: A_glass_019
+    100032: A_glass_021
+    100034: A_glass_022
+    100036: A_glass_023
     400000: A_door_004
     400002: A_door_005
     400004: A_door_006
@@ -23,6 +32,15 @@ ModelImporter:
     400014: A_glass_008
     400016: A_glass_009
     400018: //RootNode
+    400020: A_door_008
+    400022: A_door_009
+    400024: A_door_010
+    400026: A_door_011
+    400028: A_glass_018
+    400030: A_glass_019
+    400032: A_glass_021
+    400034: A_glass_022
+    400036: A_glass_023
     2300000: A_door_004
     2300002: A_door_005
     2300004: A_door_006
@@ -33,6 +51,15 @@ ModelImporter:
     2300014: A_glass_008
     2300016: A_glass_009
     2300018: //RootNode
+    2300020: A_door_008
+    2300022: A_door_009
+    2300024: A_door_010
+    2300026: A_door_011
+    2300028: A_glass_018
+    2300030: A_glass_019
+    2300032: A_glass_021
+    2300034: A_glass_022
+    2300036: A_glass_023
     3300000: A_door_004
     3300002: A_door_005
     3300004: A_door_006
@@ -43,6 +70,15 @@ ModelImporter:
     3300014: A_glass_008
     3300016: A_glass_009
     3300018: //RootNode
+    3300020: A_door_008
+    3300022: A_door_009
+    3300024: A_door_010
+    3300026: A_door_011
+    3300028: A_glass_018
+    3300030: A_glass_019
+    3300032: A_glass_021
+    3300034: A_glass_022
+    3300036: A_glass_023
     4300000: A_wall_doorway__4m
     4300002: A_glass_005
     4300004: A_door_006
@@ -53,6 +89,15 @@ ModelImporter:
     4300014: A_door_005
     4300016: A_glass_007
     4300018: A_glass_006
+    4300020: A_door_010
+    4300022: A_glass_023
+    4300024: A_door_011
+    4300026: A_glass_022
+    4300028: A_door_008
+    4300030: A_door_009
+    4300032: A_glass_021
+    4300034: A_glass_019
+    4300036: A_glass_018
     7400000: Default Take
     9500000: //RootNode
   materials:

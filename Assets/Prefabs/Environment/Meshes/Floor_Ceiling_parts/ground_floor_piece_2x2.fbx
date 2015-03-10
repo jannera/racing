@@ -9,11 +9,11 @@ FBXHeaderExtension:  {
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2015
-		Month: 02
-		Day: 20
-		Hour: 21
-		Minute: 31
-		Second: 50
+		Month: 03
+		Day: 10
+		Hour: 16
+		Minute: 17
+		Second: 06
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2015-02-20 21:31:50:000"
+CreationTime: "2015-03-10 16:17:06:000"
 Creator: "Blender version 2.66 (sub 1)"
 
 ; Object definitions
@@ -29,7 +29,7 @@ Creator: "Blender version 2.66 (sub 1)"
 
 Definitions:  {
 	Version: 100
-	Count: 3
+	Count: 5
 	ObjectType: "Model" {
 		Count: 1
 	}
@@ -37,6 +37,12 @@ Definitions:  {
 		Count: 1
 	}
 	ObjectType: "Material" {
+		Count: 1
+	}
+	ObjectType: "Texture" {
+		Count: 1
+	}
+	ObjectType: "Video" {
 		Count: 1
 	}
 	ObjectType: "Pose" {
@@ -130,27 +136,61 @@ Objects:  {
 		MultiTake: 1
 		Shading: Y
 		Culling: "CullingOff"
-		Vertices: -1.000000,-1.000000,0.000000,-1.000000,1.000000,0.000000,1.000000,1.000000,0.000000,1.000000,-1.000000,0.000000,-1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,1.000000,1.000000,1.000000
-		,1.000000,-1.000000,1.000000
-		PolygonVertexIndex: 1,0,4,-6,5,6,2,-2,6,7,3,-3,0,3,7,-5,0,1,2,-4,7,6,5,-5
-		Edges: 4,5,5,1,1,0,0,4,5,6,6,2,2,1,6,7,7,3,3,2,7,4,0,3
+		Vertices: -1.000000,0.000000,1.000000,-1.000000,-0.000000,-1.000000,1.000000,-0.000000,-1.000000,1.000000,0.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000
+		,1.000000,1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,-1.000000,-1.000000,1.000000,-1.000000,-1.000000,-0.000000,-1.000000,-1.000000,0.000000,1.000000
+		,1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,-0.000000,-1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,0.000000,1.000000
+		PolygonVertexIndex: 1,0,4,-6,10,6,2,-13,14,7,3,-17,17,8,13,-20,18,15,11,-10
+		Edges: 4,5,5,1,1,0,0,4,10,6,6,2,2,12,14,7,7,3,3,16,17,8,13,19,9,11
+		,10,12,13,8,11,15,14,16,15,18,17,19,18,9
 		GeometryVersion: 124
 		LayerElementNormal: 0 {
 			Version: 101
 			Name: ""
 			MappingInformationType: "ByVertice"
 			ReferenceInformationType: "Direct"
-			Normals: -0.577349185943604,-0.577349185943604,-0.577349185943604,-0.577349185943604,0.577349185943604,-0.577349185943604
-			 ,0.577349185943604,0.577349185943604,-0.577349185943604,0.577349185943604,-0.577349185943604,-0.577349185943604
-			 ,-0.577349185943604,-0.577349185943604,0.577349185943604,-0.577349185943604,0.577349185943604,0.577349185943604
-			 ,0.577349185943604,0.577349185943604,0.577349185943604,0.577349185943604,-0.577349185943604,0.577349185943604
+			Normals: -1.000000000000000,0.000000000000000,0.000000000000000,-1.000000000000000,0.000000000000000,0.000000000000000
+			 ,0.000000000000000,0.000000000000000,-1.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000
+			 ,-1.000000000000000,0.000000000000000,0.000000000000000,-1.000000000000000,0.000000000000000,0.000000000000000
+			 ,0.000000000000000,0.000000000000000,-1.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000
+			 ,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000
+			 ,0.000000000000000,0.000000000000000,-1.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000
+			 ,0.000000000000000,0.000000000000000,-1.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000
+			 ,1.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000
+			 ,1.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000
+			 ,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000
 		}
 		LayerElementSmoothing: 0 {
 			Version: 102
 			Name: ""
 			MappingInformationType: "ByPolygon"
 			ReferenceInformationType: "Direct"
-			Smoothing: 0,0,0,0,0,0
+			Smoothing: 1,1,1,1,1
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: 0.248765,0.751688,0.248765,0.250952,0.248765,0.250952,0.248765,0.751688,0.248765,0.751688,0.749501,0.751688,0.749501,0.751688
+			 ,0.248765,0.751688,0.749501,0.751688,0.749501,0.250952,0.749501,0.250952,0.749501,0.751688,0.749501,0.250952,0.248765,0.250952
+			 ,0.248765,0.250952,0.749501,0.250952,0.749501,0.250952,0.749501,0.751688,0.248765,0.751688,0.248765,0.250952
+			UVIndex: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 0
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: 0
 		}
 		Layer: 0 {
 			Version: 100
@@ -159,12 +199,24 @@ Objects:  {
 				TypedIndex: 0
 			}
 			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
 				Type: "LayerElementSmoothing"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementTexture"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
 				TypedIndex: 0
 			}
 		}
 	}
-	Material: "Material::unnamed", "" {
+	Material: "Material::None__tiled_floors_jpg", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -193,6 +245,56 @@ Objects:  {
 			Property: "Opacity", "double", "",1.0
 			Property: "Reflectivity", "double", "",0
 		}
+	}
+	Video: "Video::tiled_floors_jpg", "Clip" {
+		Type: "Clip"
+		Properties60:  {
+			Property: "FrameRate", "double", "",0
+			Property: "LastFrame", "int", "",0
+			Property: "Width", "int", "",0
+			Property: "Height", "int", "",0
+			Property: "Path", "charptr", "", "tiled_floors.jpg"
+			Property: "StartFrame", "int", "",0
+			Property: "StopFrame", "int", "",0
+			Property: "PlaySpeed", "double", "",1
+			Property: "Offset", "KTime", "",0
+			Property: "InterlaceMode", "enum", "",0
+			Property: "FreeRunning", "bool", "",0
+			Property: "Loop", "bool", "",0
+			Property: "AccessMode", "enum", "",0
+		}
+		UseMipMap: 0
+		Filename: "tiled_floors.jpg"
+		RelativeFilename: "G:\Piirrokset\2015\Extreme Pizza Delivery\texture\dif\tiled_floors.jpg"
+	}
+	Texture: "Texture::tiled_floors_jpg", "TextureVideoClip" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::tiled_floors_jpg"
+		Properties60:  {
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "Texture alpha", "Number", "A+",0
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UseMaterial", "bool", "",0
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "VideoProperty", "object", ""
+		}
+		Media: "Video::tiled_floors_jpg"
+		FileName: "tiled_floors.jpg"
+		RelativeFilename: "G:\Piirrokset\2015\Extreme Pizza Delivery\texture\dif\tiled_floors.jpg"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
 	}
 	Pose: "Pose::BIND_POSES", "BindPose" {
 		Type: "BindPose"
@@ -241,7 +343,11 @@ Relations:  {
 	}
 	Model: "Model::Camera Switcher", "CameraSwitcher" {
 	}
-	Material: "Material::unnamed", "" {
+	Material: "Material::None__tiled_floors_jpg", "" {
+	}
+	Texture: "Texture::tiled_floors_jpg", "TextureVideoClip" {
+	}
+	Video: "Video::tiled_floors_jpg", "Clip" {
 	}
 }
 
@@ -250,6 +356,9 @@ Relations:  {
 
 Connections:  {
 	Connect: "OO", "Model::ground_floor_piece_2x2", "Model::Scene"
+	Connect: "OO", "Material::None__tiled_floors_jpg", "Model::ground_floor_piece_2x2"
+	Connect: "OO", "Texture::tiled_floors_jpg", "Model::ground_floor_piece_2x2"
+	Connect: "OO", "Video::tiled_floors_jpg", "Texture::tiled_floors_jpg"
 }
 ;Takes and animation section
 ;----------------------------------------------------

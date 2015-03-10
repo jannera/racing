@@ -6,15 +6,20 @@ ModelImporter:
     100000: A_glass_013
     100002: A_small_window_anchorpoint
     100004: //RootNode
+    100006: A_glass_017
     400000: A_glass_013
     400002: A_small_window_anchorpoint
     400004: //RootNode
+    400006: A_glass_017
     2300000: A_glass_013
     2300002: //RootNode
+    2300004: A_glass_017
     3300000: A_glass_013
     3300002: //RootNode
+    3300004: A_glass_017
     4300000: A_wall__4m_small_window
     4300002: A_glass_013
+    4300004: A_glass_017
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -53,7 +58,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -67,6 +72,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 

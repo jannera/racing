@@ -7,16 +7,21 @@ ModelImporter:
     100002: A_small_doorway_anchorpoint
     100004: A_small_doorway_anchorpoint_2
     100006: //RootNode
+    100008: A_glass_024
     400000: A_glass_017
     400002: A_small_doorway_anchorpoint
     400004: A_small_doorway_anchorpoint_2
     400006: //RootNode
+    400008: A_glass_024
     2300000: A_glass_017
     2300002: //RootNode
+    2300004: A_glass_024
     3300000: A_glass_017
     3300002: //RootNode
+    3300004: A_glass_024
     4300000: A_wall_small_doorway__4m
     4300002: A_glass_017
+    4300004: A_glass_024
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -55,7 +60,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -69,6 +74,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
