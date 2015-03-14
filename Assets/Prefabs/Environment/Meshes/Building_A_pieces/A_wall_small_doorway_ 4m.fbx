@@ -10,10 +10,10 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2015
 		Month: 03
-		Day: 10
-		Hour: 16
-		Minute: 45
-		Second: 10
+		Day: 14
+		Hour: 01
+		Minute: 57
+		Second: 29
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2015-03-10 16:45:10:000"
+CreationTime: "2015-03-14 01:57:29:000"
 Creator: "Blender version 2.66 (sub 1)"
 
 ; Object definitions
@@ -828,7 +828,7 @@ Objects:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
 			Property: "Lcl Translation", "Lcl Translation", "A+",0.200000032782555,1.605279922485352,0.000063518054958
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,0.000000000000000,0.000000000000000
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",0.000000000000000,-0.000000000000000,0.000000000000000
 			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.999999940395355,1.000000000000000,1.000000000000000
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
@@ -901,7 +901,7 @@ Objects:  {
 		MultiTake: 1
 		Shading: Y
 		Culling: "CullingOff"
-		Vertices: 0.000000,-0.469084,-0.709709,-0.000000,-0.469084,0.553653,0.000000,0.469084,-0.709709,-0.000000,0.469084,0.553653
+		Vertices: 0.000000,-0.709709,0.469084,-0.000000,0.553654,0.469084,0.000000,-0.709709,-0.469084,-0.000000,0.553653,-0.469084
 		PolygonVertexIndex: 1,0,2,-4
 		Edges: 0,1,2,3,0,2,3,1
 		GeometryVersion: 124
@@ -1222,7 +1222,7 @@ Objects:  {
 		}
 		PoseNode:  {
 			Node: "Model::A_glass_024"
-			Matrix: 0.000000075497894,-1.000000000000000,0.000000162920685,0.000000000000000,-0.999999940395355,-0.000000075497901,0.000000000000012,0.000000000000000,0.000000000000000,-0.000000162920685,-1.000000000000000,0.000000000000000,0.200000032782555,0.000063518054958,-1.605279922485352,1.000000000000000
+			Matrix: 0.000000075497894,0.000000000000000,-1.000000000000000,0.000000000000000,-0.999999940395355,0.000000000000000,-0.000000075497901,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,0.200000032782555,0.000063518054958,-1.605279922485352,1.000000000000000
 		}
 	}
 	GlobalSettings:  {

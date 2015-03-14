@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b369905c3a3c8c644b5877221fd2ccd4
+guid: a0c0714b9d99a644ea971a9a2b0c0992
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Side_room_ceiling_top_connecting_piece
+    4300000: ladder_top
     9500000: //RootNode
   materials:
     importMaterials: 1

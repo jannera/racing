@@ -5,14 +5,19 @@ ModelImporter:
   fileIDToRecycleName:
     100000: glass
     100002: //RootNode
+    100004: glass_002
     400000: glass
     400002: //RootNode
+    400004: glass_002
     2300000: glass
     2300002: //RootNode
+    2300004: glass_002
     3300000: glass
     3300002: //RootNode
+    3300004: glass_002
     4300000: Side_room_window_bottom
     4300002: glass
+    4300004: glass_002
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -51,7 +56,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -65,6 +70,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 

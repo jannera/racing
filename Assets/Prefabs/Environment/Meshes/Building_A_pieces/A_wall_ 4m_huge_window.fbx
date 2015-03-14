@@ -10,10 +10,10 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2015
 		Month: 03
-		Day: 10
-		Hour: 15
-		Minute: 58
-		Second: 44
+		Day: 14
+		Hour: 01
+		Minute: 55
+		Second: 58
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2015-03-10 15:58:44:000"
+CreationTime: "2015-03-14 01:55:58:000"
 Creator: "Blender version 2.66 (sub 1)"
 
 ; Object definitions
@@ -29,15 +29,15 @@ Creator: "Blender version 2.66 (sub 1)"
 
 Definitions:  {
 	Version: 100
-	Count: 13
+	Count: 11
 	ObjectType: "Model" {
-		Count: 2
+		Count: 1
 	}
 	ObjectType: "Geometry" {
-		Count: 2
+		Count: 1
 	}
 	ObjectType: "Material" {
-		Count: 4
+		Count: 3
 	}
 	ObjectType: "Texture" {
 		Count: 3
@@ -679,116 +679,6 @@ Objects:  {
 			}
 		}
 	}
-	Model: "Model::A_glass_013", "Mesh" {
-		Version: 232
-		Properties60:  {
-			Property: "QuaternionInterpolate", "bool", "",0
-			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",0.200000047683716,2.109843254089355,0.000000019534532
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,0.000000000000000,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.000000000000000,1.000000000000000,1.000000000000000
-			Property: "RotationOffset", "Vector3D", "",0,0,0
-			Property: "RotationPivot", "Vector3D", "",0,0,0
-			Property: "ScalingOffset", "Vector3D", "",0,0,0
-			Property: "ScalingPivot", "Vector3D", "",0,0,0
-			Property: "TranslationActive", "bool", "",0
-			Property: "TranslationMin", "Vector3D", "",0,0,0
-			Property: "TranslationMax", "Vector3D", "",0,0,0
-			Property: "TranslationMinX", "bool", "",0
-			Property: "TranslationMinY", "bool", "",0
-			Property: "TranslationMinZ", "bool", "",0
-			Property: "TranslationMaxX", "bool", "",0
-			Property: "TranslationMaxY", "bool", "",0
-			Property: "TranslationMaxZ", "bool", "",0
-			Property: "RotationOrder", "enum", "",0
-			Property: "RotationSpaceForLimitOnly", "bool", "",0
-			Property: "AxisLen", "double", "",10
-			Property: "PreRotation", "Vector3D", "",0,0,0
-			Property: "PostRotation", "Vector3D", "",0,0,0
-			Property: "RotationActive", "bool", "",0
-			Property: "RotationMin", "Vector3D", "",0,0,0
-			Property: "RotationMax", "Vector3D", "",0,0,0
-			Property: "RotationMinX", "bool", "",0
-			Property: "RotationMinY", "bool", "",0
-			Property: "RotationMinZ", "bool", "",0
-			Property: "RotationMaxX", "bool", "",0
-			Property: "RotationMaxY", "bool", "",0
-			Property: "RotationMaxZ", "bool", "",0
-			Property: "RotationStiffnessX", "double", "",0
-			Property: "RotationStiffnessY", "double", "",0
-			Property: "RotationStiffnessZ", "double", "",0
-			Property: "MinDampRangeX", "double", "",0
-			Property: "MinDampRangeY", "double", "",0
-			Property: "MinDampRangeZ", "double", "",0
-			Property: "MaxDampRangeX", "double", "",0
-			Property: "MaxDampRangeY", "double", "",0
-			Property: "MaxDampRangeZ", "double", "",0
-			Property: "MinDampStrengthX", "double", "",0
-			Property: "MinDampStrengthY", "double", "",0
-			Property: "MinDampStrengthZ", "double", "",0
-			Property: "MaxDampStrengthX", "double", "",0
-			Property: "MaxDampStrengthY", "double", "",0
-			Property: "MaxDampStrengthZ", "double", "",0
-			Property: "PreferedAngleX", "double", "",0
-			Property: "PreferedAngleY", "double", "",0
-			Property: "PreferedAngleZ", "double", "",0
-			Property: "InheritType", "enum", "",0
-			Property: "ScalingActive", "bool", "",0
-			Property: "ScalingMin", "Vector3D", "",1,1,1
-			Property: "ScalingMax", "Vector3D", "",1,1,1
-			Property: "ScalingMinX", "bool", "",0
-			Property: "ScalingMinY", "bool", "",0
-			Property: "ScalingMinZ", "bool", "",0
-			Property: "ScalingMaxX", "bool", "",0
-			Property: "ScalingMaxY", "bool", "",0
-			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",0,0,0
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
-			Property: "GeometricScaling", "Vector3D", "",1,1,1
-			Property: "LookAtProperty", "object", ""
-			Property: "UpVectorProperty", "object", ""
-			Property: "Show", "bool", "",1
-			Property: "NegativePercentShapeSupport", "bool", "",1
-			Property: "DefaultAttributeIndex", "int", "",0
-			Property: "Color", "Color", "A",0.8,0.8,0.8
-			Property: "Size", "double", "",100
-			Property: "Look", "enum", "",1
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-		Vertices: 0.000000,-1.469999,-2.012286,-0.000000,-1.469999,1.890157,0.000000,1.469999,-2.012286,-0.000000,1.469999,1.890157
-		PolygonVertexIndex: 1,0,2,-4
-		Edges: 0,1,2,3,0,2,3,1
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "ByVertice"
-			ReferenceInformationType: "Direct"
-			Normals: 1.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000
-			 ,1.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: 1
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-		}
-	}
 	Material: "Material::Material__additional_textures_concrete_jpg", "" {
 		Version: 102
 		ShadingModel: "lambert"
@@ -875,36 +765,6 @@ Objects:  {
 			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.8
 			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
 			Property: "Shininess", "double", "",9.6
-			Property: "Opacity", "double", "",1.0
-			Property: "Reflectivity", "double", "",0
-		}
-	}
-	Material: "Material::unnamed", "" {
-		Version: 102
-		ShadingModel: "phong"
-		MultiLayer: 0
-		Properties60:  {
-			Property: "ShadingModel", "KString", "", "Phong"
-			Property: "MultiLayer", "bool", "",0
-			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
-			Property: "EmissiveFactor", "double", "",0.0000
-			Property: "AmbientColor", "ColorRGB", "",0.0000,0.0000,0.0000
-			Property: "AmbientFactor", "double", "",0.5000
-			Property: "DiffuseColor", "ColorRGB", "",0.8000,0.8000,0.8000
-			Property: "DiffuseFactor", "double", "",1.0000
-			Property: "Bump", "Vector3D", "",0,0,0
-			Property: "TransparentColor", "ColorRGB", "",1,1,1
-			Property: "TransparencyFactor", "double", "",0.0000
-			Property: "SpecularColor", "ColorRGB", "",0.8000,0.8000,0.8000
-			Property: "SpecularFactor", "double", "",0.2000
-			Property: "ShininessExponent", "double", "",80.0
-			Property: "ReflectionColor", "ColorRGB", "",0,0,0
-			Property: "ReflectionFactor", "double", "",1
-			Property: "Emissive", "ColorRGB", "",0,0,0
-			Property: "Ambient", "ColorRGB", "",0.0,0.0,0.0
-			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.8
-			Property: "Specular", "ColorRGB", "",0.8,0.8,0.8
-			Property: "Shininess", "double", "",20.0
 			Property: "Opacity", "double", "",1.0
 			Property: "Reflectivity", "double", "",0
 		}
@@ -1064,14 +924,10 @@ Objects:  {
 		Version: 100
 		Properties60:  {
 		}
-		NbPoseNodes: 2
+		NbPoseNodes: 1
 		PoseNode:  {
 			Node: "Model::A_wall__4m_huge_window"
 			Matrix: 0.000000075497901,0.000000000000000,-1.000000000000000,0.000000000000000,-1.000000000000000,0.000000000000000,-0.000000075497901,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,0.000000000000000,1.000000000000000
-		}
-		PoseNode:  {
-			Node: "Model::A_glass_013"
-			Matrix: 0.000000075497901,-1.000000000000000,0.000000162920685,0.000000000000000,-1.000000000000000,-0.000000075497901,0.000000000000012,0.000000000000000,0.000000000000000,-0.000000162920685,-1.000000000000000,0.000000000000000,0.200000047683716,0.000000019534532,-2.109843254089355,1.000000000000000
 		}
 	}
 	GlobalSettings:  {
@@ -1093,8 +949,6 @@ Objects:  {
 
 Relations:  {
 	Model: "Model::A_wall__4m_huge_window", "Mesh" {
-	}
-	Model: "Model::A_glass_013", "Mesh" {
 	}
 	Model: "Model::Producer Perspective", "Camera" {
 	}
@@ -1118,8 +972,6 @@ Relations:  {
 	}
 	Material: "Material::Material__wall_texture_jpg", "" {
 	}
-	Material: "Material::unnamed", "" {
-	}
 	Texture: "Texture::additional_textures_concrete_jpg", "TextureVideoClip" {
 	}
 	Texture: "Texture::additional_textures_metal_png", "TextureVideoClip" {
@@ -1139,7 +991,6 @@ Relations:  {
 
 Connections:  {
 	Connect: "OO", "Model::A_wall__4m_huge_window", "Model::Scene"
-	Connect: "OO", "Model::A_glass_013", "Model::A_wall__4m_huge_window"
 	Connect: "OO", "Material::Material__additional_textures_concrete_jpg", "Model::A_wall__4m_huge_window"
 	Connect: "OO", "Material::Material__additional_textures_metal_png", "Model::A_wall__4m_huge_window"
 	Connect: "OO", "Material::Material__wall_texture_jpg", "Model::A_wall__4m_huge_window"

@@ -1,13 +1,18 @@
 fileFormatVersion: 2
-guid: b369905c3a3c8c644b5877221fd2ccd4
+guid: 08fbf3192ef3d0443a046b3e9348106e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: glass_003
     400000: //RootNode
+    400002: glass_003
     2300000: //RootNode
+    2300002: glass_003
     3300000: //RootNode
-    4300000: Side_room_ceiling_top_connecting_piece
+    3300002: glass_003
+    4300000: escalator
+    4300002: glass_003
     9500000: //RootNode
   materials:
     importMaterials: 1

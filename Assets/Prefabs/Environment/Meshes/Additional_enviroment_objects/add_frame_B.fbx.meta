@@ -1,13 +1,18 @@
 fileFormatVersion: 2
-guid: b369905c3a3c8c644b5877221fd2ccd4
+guid: a47c9887a9a4b2746ac94f59a9bbff9a
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: add_spot_B
     400000: //RootNode
+    400002: add_spot_B
     2300000: //RootNode
+    2300002: add_spot_B
     3300000: //RootNode
-    4300000: Side_room_ceiling_top_connecting_piece
+    3300002: add_spot_B
+    4300000: add_frame_B
+    4300002: add_spot_B
     9500000: //RootNode
   materials:
     importMaterials: 1
