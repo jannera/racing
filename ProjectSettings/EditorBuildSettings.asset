@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/env_planes_w_bridge.unity
   - enabled: 1
     path: Assets/Scenes/car.unity
+  - enabled: 1
+    path: Assets/Scenes/env_terraces.unity

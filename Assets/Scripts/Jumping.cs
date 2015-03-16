@@ -53,7 +53,7 @@ public class Jumping : MonoBehaviour {
         {
             StartChargingForJump();
         }
-        else if (Input.GetButtonUp("Jump") && WheelsOnGround())
+        else if (Input.GetButtonUp("Jump") && !WheelsOffGroundLongEnough())
         {
             ReleaseJump();
         }
@@ -161,7 +161,7 @@ public class Jumping : MonoBehaviour {
             i--;
         }
 
-        Debug.Log(chargingTimer + " vs " + maxChargingTimer + " => " + jumpStages[i].jumpHeight);
+        // Debug.Log(chargingTimer + " vs " + maxChargingTimer + " => " + jumpStages[i].jumpHeight);
 
         return Mathf.Sqrt(2f * jumpStages[i].jumpHeight * g);
     }
