@@ -262,7 +262,7 @@ MonoBehaviour:
     max: 12.5
   maxSpeedFactor: 70
   cameraAngleAdjust: 20
-  directionChangeThreshold: .200000003
+  directionChangeThreshold: .5
   peekAngle: 60
   peekSpeed: 11
   peekEndAngle: 10
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   - {fileID: 943770223}
   - {fileID: 1975208372}
   steerMinSpeed: 35
-  steerMaxSpeed: 10
+  steerMaxSpeed: 5
   motorMax: 25
   brakeMax: .600000024
   maxVelocity: 120

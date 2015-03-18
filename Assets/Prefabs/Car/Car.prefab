@@ -2524,7 +2524,7 @@ MonoBehaviour:
   - {fileID: 14688130}
   - {fileID: 14688126}
   steerMinSpeed: 35
-  steerMaxSpeed: 10
+  steerMaxSpeed: 5
   motorMax: 25
   brakeMax: .600000024
   maxVelocity: 120

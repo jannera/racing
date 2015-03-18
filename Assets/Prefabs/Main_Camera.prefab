@@ -103,7 +103,7 @@ MonoBehaviour:
     max: 12.5
   maxSpeedFactor: 70
   cameraAngleAdjust: 20
-  directionChangeThreshold: .200000003
+  directionChangeThreshold: .5
   peekAngle: 60
   peekSpeed: 11
   peekEndAngle: 10
