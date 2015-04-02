@@ -1116,7 +1116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188058}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: .0850982666, y: -1.01164484, z: -.00524902344}
+  m_LocalPosition: {x: 99.0800018, y: 7.0999999, z: 31.0400009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488092}
@@ -2487,7 +2487,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188058}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2777155670b3ee4990e74adccad05ed, type: 3}
   m_Name: 
@@ -2529,6 +2529,7 @@ MonoBehaviour:
   brakeMax: .600000024
   maxVelocity: 120
   reverseMax: 30
+  dragMax: .200000003
   steerFactor: 0
   boosterTorqueModifier: 1.5
   boosterMaxVelocityModifier: 1.75
@@ -2603,7 +2604,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e349e7066953f6448c83f485ee80c86, type: 3}
   m_Name: 

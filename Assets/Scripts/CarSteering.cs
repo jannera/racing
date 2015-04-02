@@ -12,6 +12,7 @@ public class CarSteering : MonoBehaviour {
     public float brakeMax = 100;
     public float maxVelocity = 100; // km/h
     public float reverseMax = 40;
+    public float dragMax;
 
     public float steerFactor;
 
@@ -25,8 +26,14 @@ public class CarSteering : MonoBehaviour {
         float verticalDir = Input.GetAxis("Vertical");
         if (verticalDir > 0) {
             accelerate();
+            drag(0);
         } else if(verticalDir < 0) {
             decelerate();
+            drag(0);
+        }
+        else
+        {
+            drag(1f);
         }
         
         brake(1f);
@@ -89,6 +96,14 @@ public class CarSteering : MonoBehaviour {
             } else {
                 brakingWheels[i].brakeTorque = 0;
             }
+        }
+    }
+
+    private void drag(float relative)
+    {
+        for (int i = 0; i < torqueWheels.Length; i++)
+        {
+            torqueWheels[i].brakeTorque = relative * dragMax * rigidbody.mass;
         }
     }
 
