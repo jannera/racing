@@ -80,7 +80,7 @@ public class CarSteering : MonoBehaviour {
         float brakeValue = -1 * Mathf.Clamp(Input.GetAxis("Vertical"), -1, 0);
 
         for (int i = 0; i < torqueWheels.Length; i++) {
-            if (currentVel > -reverseMax) {                
+            if (currentVel < reverseMax || headingForward()) {
                 torqueWheels[i].motorTorque = brakeValue * -reverseMax * torqueWheels[i].mass;
             } else {                
                 torqueWheels[i].motorTorque = 0;
@@ -109,6 +109,11 @@ public class CarSteering : MonoBehaviour {
 
     private float MetersPerSecondToKmPerH(float v) {
         return v * 60 * 60 / 1000f;
+    }
+
+    private bool headingForward()
+    {
+        return transform.InverseTransformVector(rigidbody.velocity).z >= 0;
     }
 
     public float GetCurrentVelocityKmPerH() {
