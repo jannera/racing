@@ -20,6 +20,12 @@ public class CarSteering : MonoBehaviour {
     public float boosterMaxVelocityModifier = 2f;
     public float boosterSteerModifier = 0.2f;
 
+    public AudioSource engineSource;
+
+    void Start() {        
+        engineSource = GetComponent<AudioSource>();
+    }
+
     void FixedUpdate() {
         steer();
 
@@ -47,10 +53,33 @@ public class CarSteering : MonoBehaviour {
         // Steering depends on speed of the car
         float speedFactor = currentVel / maxVelocity;
         steerFactor = Mathf.Lerp(steerMinSpeed, steerMaxSpeed, speedFactor);
+        engineSound();
 
         for (int i = 0; i < steeringWheels.Length; i++) {
             steeringWheels[i].steerAngle = steer * steerFactor;
         }
+    }
+
+    private void engineSound() {
+        float motor = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1);
+        float velocity = GetCurrentFractionOfMaxVelocity();
+        float pitch;
+        if (atLeastOnetorqueWheelOnGround()) {
+            pitch = velocity;                 
+        } else {
+            pitch = motor;
+        }
+
+       engineSource.pitch = pitch + 0.5f;       
+    }
+
+    private bool atLeastOnetorqueWheelOnGround() {
+        for (int i = 0; i < torqueWheels.Length; i++) {
+            if (torqueWheels[i].isGrounded) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void accelerate() {
@@ -123,6 +152,5 @@ public class CarSteering : MonoBehaviour {
     public float GetCurrentFractionOfMaxVelocity() {
         return GetCurrentVelocityKmPerH() / maxVelocity;
 
-    }
-
+    }    
 }
