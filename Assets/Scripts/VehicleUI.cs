@@ -11,6 +11,10 @@ public class VehicleUI : MonoBehaviour {
 		if (speedText == null) {
 			speedText = GetComponent<Text> ();
 		}
+		if (target == null) {
+			GameObject go = GameObject.FindGameObjectWithTag ("Player");
+			target = go.GetComponent<Rigidbody> ();
+		}
 	}
 
 	public void Update ()
