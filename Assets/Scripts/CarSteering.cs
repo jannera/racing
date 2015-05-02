@@ -20,10 +20,13 @@ public class CarSteering : MonoBehaviour {
     public float boosterMaxVelocityModifier = 2f;
     public float boosterSteerModifier = 0.2f;
 
-    public AudioSource engineSource;
+    private AudioSource audioSource;
+    public AudioClip engineSoundClip;
 
     void Start() {        
-        engineSource = GetComponent<AudioSource>();
+        GameObject engineSource = GameObject.Find("EngineSource");
+        audioSource = engineSource.GetComponent<AudioSource>();
+        audioSource.clip = engineSoundClip;
     }
 
     void FixedUpdate() {
@@ -70,7 +73,10 @@ public class CarSteering : MonoBehaviour {
             pitch = motor;
         }
 
-       engineSource.pitch = pitch + 0.5f;       
+       audioSource.pitch = pitch + 0.5f;     
+       if(!audioSource.isPlaying) {
+            audioSource.Play();   
+       }  
     }
 
     private bool atLeastOnetorqueWheelOnGround() {

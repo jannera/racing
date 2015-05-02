@@ -4,14 +4,21 @@ using System.Collections;
 public class RocketController : MonoBehaviour {
     public float rocketAcceleration;
     private WheelCollider[] wheels;
+    public AudioClip steerRocketSound;
+    private AudioSource audioSource;
 
     void Start() {
         wheels = GetComponentsInChildren<WheelCollider>();
+        
+        GameObject rocketSource = GameObject.Find("RocketSource");
+        audioSource = rocketSource.GetComponent<AudioSource>();
+        audioSource.clip = steerRocketSound;
     }
 
 	void FixedUpdate () {
         StabilizationRockets();
         RotationRockets();
+        PlayRocketSound();
 	}
 
     void StabilizationRockets() {
@@ -43,5 +50,16 @@ public class RocketController : MonoBehaviour {
             }            
         }
         return true;
+    }
+    
+    private void PlayRocketSound() {
+        bool rocketOn = Input.GetButton("RocketHorizontal") || Input.GetButton("RocketVertical");
+        if(rocketOn) {
+            if(!audioSource.isPlaying) {
+                audioSource.Play();   
+            }                         
+        } else {
+            audioSource.Stop();
+        }
     }
 }
