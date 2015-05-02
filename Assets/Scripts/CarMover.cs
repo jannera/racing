@@ -3,8 +3,12 @@ using System.Collections;
 
 public class CarMover : MonoBehaviour {
 
-    void Start()
-    {
+	void Start() {
+		doMove(transform);
+	} 
+
+    public static void doMove (Transform transform)
+	{
         GameObject car = GameObject.FindGameObjectWithTag("Player");
         if (car == null)
         {
