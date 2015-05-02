@@ -20,6 +20,9 @@ public class Jumping : MonoBehaviour {
     private enum GolfCharger { INCREASING, DECREASING, MAX };
 
     private GolfCharger risingStatus = GolfCharger.INCREASING;
+    
+    public AudioClip jumpClip;
+    private AudioSource audioSource;
 
     [System.Serializable]
     public class JumpConfig
@@ -39,6 +42,9 @@ public class Jumping : MonoBehaviour {
             normalSuspensionDistance[i] = wheels[i].suspensionDistance;
         }
         maxChargingTimer = jumpStages[jumpStages.Length - 1].maxTime;
+        
+        GameObject jumpSource = GameObject.Find("JumpSource");
+        audioSource = jumpSource.GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -138,6 +144,7 @@ public class Jumping : MonoBehaviour {
     {
         rigidbody.AddForce(transform.up * GetJumpStartingVelocity(), ForceMode.VelocityChange);
         ResetCharging();
+        audioSource.PlayOneShot(jumpClip);
     }
 
     public float GetChargeStatus()
